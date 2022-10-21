@@ -45,9 +45,11 @@ const userController = {
         .catch(err => res.json(err));
     },
     addFriend({ params, body }, res) {
+        console.log(params);
+            console.log(body);
         User.findOneAndUpdate(
             { _id: params.id },
-            { $push: { friends: body.id}},
+            { $push: { friends: params.friendId }},
             { new: true, runValidators: true }
         )
         .then(dbUserData => {

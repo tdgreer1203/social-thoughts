@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { stringify } = require('querystring');
 const dateFormat = require('../utils/dateFormat');
 
 const ReactionSchema = new mongoose.Schema(
@@ -28,7 +27,8 @@ const ReactionSchema = new mongoose.Schema(
     {
         toJSON: {
             getters: true
-        }
+        },
+        id: false
     }
 );
 
